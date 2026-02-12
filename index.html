@@ -145,5 +145,50 @@
             }
         }, { once: true });
     </script>
+
+    <style>
+    .falling-element {
+        position: fixed;
+        top: -10%;
+        user-select: none;
+        pointer-events: none;
+        z-index: 9999;
+        animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+</style>
+
+<script>
+    function createFallingEffect() {
+        const symbols = ['🌸', '🌹', '❤️', '💖', '✨', '🌹'];
+        const element = document.createElement('div');
+        
+        element.className = 'falling-element';
+        element.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+        
+        element.style.left = Math.random() * 100 + 'vw';
+        element.style.animationDuration = (Math.random() * 2 + 3) + 's';
+        element.style.fontSize = (Math.random() * 10 + 15) + 'px';
+        
+        document.body.appendChild(element);
+
+        setTimeout(() => {
+            element.remove();
+        }, 5000);
+    }
+
+    // Adjust the '300' to a lower number like '150' if you want MORE petals
+    setInterval(createFallingEffect, 300);
+</script>
 </body>
 </html>
