@@ -161,18 +161,21 @@
             }
         });
 
-        // --- Proposal Timer Logic ---
+        // --- Proposal Timer Logic (2 Years, Feb 13, 3:30 PM) ---
         function updateTimer() {
             const proposalDate = new Date("2023-02-13T15:30:00").getTime();
             const now = new Date().getTime();
             const diff = now - proposalDate;
 
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            // Calculations for years, days, hours, mins, secs
+            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+            const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const secs = Math.floor((diff % (1000 * 60)) / 1000);
 
-            document.getElementById("timer-display").innerHTML = days + "d " + hours + "h " + mins + "m " + secs + "s";
+            document.getElementById("timer-display").innerHTML = 
+                years + "y " + days + "d " + hours + "h " + mins + "m " + secs + "s";
         }
         setInterval(updateTimer, 1000);
         updateTimer();
@@ -191,23 +194,26 @@
         }
         setInterval(createFallingEffect, 300);
 
-        // --- Tap for Heart Effect ---
+        // --- Heart on Click Effect ---
         document.addEventListener('click', (e) => {
-            if (music.paused) { music.play(); musicBtn.innerHTML = '🎶'; } // Auto-play music on click
+            if (music.paused) { music.play().catch(() => {}); musicBtn.innerHTML = '🎶'; } 
+            
             const h = document.createElement('div');
             h.innerHTML = '💖';
             h.style.position = 'fixed';
-            h.style.left = e.clientX + 'px';
-            h.style.top = e.clientY + 'px';
-            h.style.fontSize = '20px';
+            h.style.left = (e.clientX - 10) + 'px';
+            h.style.top = (e.clientY - 10) + 'px';
+            h.style.fontSize = '25px';
             h.style.pointerEvents = 'none';
             h.style.transition = 'all 1s ease-out';
             h.style.zIndex = '10000';
             document.body.appendChild(h);
+
             setTimeout(() => {
-                h.style.transform = `translateY(-100px) scale(2)`;
+                h.style.transform = `translateY(-120px) scale(2.5) rotate(${Math.random() * 60 - 30}deg)`;
                 h.style.opacity = '0';
             }, 10);
+            
             setTimeout(() => h.remove(), 1000);
         });
     </script>
