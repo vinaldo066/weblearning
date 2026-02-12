@@ -1,215 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Love Story 💕</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="config.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Allura&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Falling Animation Styles */
-        .falling-element {
-            position: fixed;
-            top: -10%;
-            user-select: none;
-            pointer-events: none;
-            z-index: 9999;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-        }
-
-        /* Anniversary Timer Styling */
-        #anniversary-timer {
-            text-align: center;
-            margin: 20px auto;
-            padding: 15px;
-            max-width: 350px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(8px);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 105, 180, 0.3);
-            font-family: 'Poppins', sans-serif;
-            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Website Generator 💕</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="config.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Allura&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="music-control">
-        <button id="musicToggle" class="music-btn">🎵</button>
-        <audio id="bgMusic" loop>
-            <source src="our_song.mp3" type="audio/mp3">
-        </audio>
-    </div>
+    <!-- Music Control -->
+    <div class="music-control">
+        <button id="musicToggle" class="music-btn">🎵</button>
+        <audio id="bgMusic" loop>
+            <source src="our_song.mp3" type="audio/mp3">
+        </audio>
+    </div>
 
-    <div class="hearts-container"></div>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container"></div>
 
-    <div class="container">
-        <header class="header">
-            <h1 class="main-title">For My Love</h1>
-            <p class="subtitle" id="subtitle">Add your partner's name in config.js ✨</p>
-        </header>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title">For My Love</h1>
+            <p class="subtitle" id="subtitle">Add your partner's name in config.js ✨</p>
+        </header>
 
-        <div id="anniversary-timer">
-            <p style="color: #FF1493; margin: 0; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;">Since the Proposal (Feb 13, 2023)</p>
-            <div id="timer-display" style="color: #FF69B4; font-size: 1.3rem; font-weight: bold; margin-top: 5px;">
-                Counting our moments...
-            </div>
-        </div>
+        <!-- Character Section -->
+       <section class="characters-section">
+    <div class="character-container">
+        <div class="character" id="partner">
+            <div class="character-avatar">
+                <img src="partner-pic.jpg" alt="Partner" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #FF69B4; box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);">
+            </div>
+            <h3 id="partnerName">Your Love 💕</h3>
+            <p id="partnerDescription">My beautiful angel</p>
+        </div>
+        
+        <div class="love-heart">
+            <svg viewBox="0 0 50 50" class="heart-svg">
+                <path d="M25 45 C25 45, 5 25, 5 15 C5 10, 10 5, 15 5 C20 5, 25 10, 25 15 C25 10, 30 5, 35 5 C40 5, 45 10, 45 15 C45 25, 25 45, 25 45 Z" fill="#FF69B4"/>
+            </svg>
+        </div>
 
-        <section class="characters-section">
-            <div class="character-container">
-                <div class="character" id="partner">
-                    <div class="character-avatar">
-                        <img src="partner-pic.jpg" alt="Partner" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #FF69B4; box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);">
-                    </div>
-                    <h3 id="partnerName">Your Love 💕</h3>
-                    <p id="partnerDescription">My beautiful angel</p>
-                </div>
-                
-                <div class="love-heart">
-                    <svg viewBox="0 0 50 50" class="heart-svg">
-                        <path d="M25 45 C25 45, 5 25, 5 15 C5 10, 10 5, 15 5 C20 5, 25 10, 25 15 C25 10, 30 5, 35 5 C40 5, 45 10, 45 15 C45 25, 25 45, 25 45 Z" fill="#FF69B4"/>
-                    </svg>
-                </div>
+        <div class="character" id="you">
+            <div class="character-avatar">
+                <img src="my-pic.jpeg" alt="Me" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #87CEEB; box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3);">
+            </div>
+            <h3 id="yourName">Me 💙</h3>
+            <p id="yourDescription">Forever yours</p>
+        </div>
+    </div>
+</section>
 
-                <div class="character" id="you">
-                    <div class="character-avatar">
-                        <img src="my-pic.jpeg" alt="Me" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #87CEEB; box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3);">
-                    </div>
-                    <h3 id="yourName">Me 💙</h3>
-                    <p id="yourDescription">Forever yours</p>
-                </div>
-            </div>
-        </section>
+        <!-- Interactive Love Section -->
+        <section class="interaction-section">
+            <button id="loveButton" class="love-btn">Click for a surprise 💝</button>
+            <div id="loveNote" class="love-note">
+                <p id="loveNoteText">Add your love message in config.js 💖</p>
+            </div>
+        </section>
 
-        <section class="interaction-section">
-            <button id="loveButton" class="love-btn">Click for a surprise 💝</button>
-            <div id="loveNote" class="love-note">
-                <p id="loveNoteText">Add your love message in config.js 💖</p>
-            </div>
-        </section>
+        <!-- Memory Gallery -->
+        <section class="memory-gallery">
+            <h2>Our Beautiful Memories Together 💫</h2>
+            <div class="memories-grid">
+                <div class="memory-card" data-memory="late-night">
+                    <div class="memory-icon">🌙</div>
+                    <h3>Late Night Talks</h3>
+                    <p id="memoryLateNight">Those endless conversations that made us forget about time</p>
+                </div>
+                <div class="memory-card" data-memory="first-meeting">
+                    <div class="memory-icon">💫</div>
+                    <h3>The Day We'll Meet</h3>
+                    <p id="memoryFirstMeeting">I know the day we meet will be magical and unforgettable</p>
+                </div>
+                <div class="memory-card" data-memory="care">
+                    <div class="memory-icon">💕</div>
+                    <h3>Your Care & Voice</h3>
+                    <p id="memoryCare">Your caring nature, sweet voice, and adorable cuteness</p>
+                </div>
+            </div>
+        </section>
 
-        <section class="memory-gallery">
-            <h2>Our Beautiful Memories Together 💫</h2>
-            <div class="memories-grid">
-                <div class="memory-card" data-memory="late-night">
-                    <div class="memory-icon">🌙</div>
-                    <h3>Late Night Talks</h3>
-                    <p id="memoryLateNight">Those endless conversations that made us forget about time</p>
-                </div>
-                <div class="memory-card" data-memory="first-meeting">
-                    <div class="memory-icon">💫</div>
-                    <h3>The Day We'll Meet</h3>
-                    <p id="memoryFirstMeeting">I know the day we meet will be magical and unforgettable</p>
-                </div>
-                <div class="memory-card" data-memory="care">
-                    <div class="memory-icon">💕</div>
-                    <h3>Your Care & Voice</h3>
-                    <p id="memoryCare">Your caring nature, sweet voice, and adorable cuteness</p>
-                </div>
-            </div>
-        </section>
+        <!-- Love Meter -->
+        <section class="love-meter-section">
+            <h2>How Much I Love You 💕</h2>
+            <div class="love-meter">
+                <div class="meter-fill"></div>
+                <span class="love-percentage">∞%</span>
+            </div>
+        </section>
 
-        <section class="love-meter-section">
-            <h2>How Much I Love You 💕</h2>
-            <div class="love-meter">
-                <div class="meter-fill"></div>
-                <span class="love-percentage">∞%</span>
-            </div>
-        </section>
+        <!-- Kiss Counter Game -->
+        <section class="game-section">
+            <h2>Virtual Kisses 💋</h2>
+            <div class="kiss-counter">
+                <span id="kissCount">0</span>
+                <button id="kissButton" class="kiss-btn">Send a Kiss 💋</button>
+            </div>
+            <div class="kiss-effects"></div>
+        </section>
 
-        <section class="game-section">
-            <h2>Virtual Kisses 💋</h2>
-            <div class="kiss-counter">
-                <span id="kissCount">0</span>
-                <button id="kissButton" class="kiss-btn">Send a Kiss 💋</button>
-            </div>
-            <div class="kiss-effects"></div>
-        </section>
+        <!-- Special Message -->
+        <section class="special-message">
+            <div class="message-container">
+                <h2 id="specialMessageTitle">To My Dearest Love</h2>
+                <p id="specialMessage1">You came into my life like a beautiful surprise, and now I can't imagine my world without you. Your smile brightens my darkest days, your laugh is my favorite melody, and your love is the greatest gift I've ever received.</p>
+                <p id="specialMessage2">Thank you for being you, for loving me, and for making every day feel like a celebration. I promise to love you, cherish you, and make you smile every single day of our lives together.</p>
+                <div class="signature" id="signature">With all my love, Forever yours 💕</div>
+            </div>
+        </section>
+    </div>
 
-        <section class="special-message">
-            <div class="message-container">
-                <h2 id="specialMessageTitle">To My Dearest Love</h2>
-                <p id="specialMessage1">You came into my life like a beautiful surprise, and now I can't imagine my world without you. Your smile brightens my darkest days, your laugh is my favorite melody, and your love is the greatest gift I've ever received.</p>
-                <p id="specialMessage2">Thank you for being you, for loving me, and for making every day feel like a celebration. I promise to love you, cherish you, and make you smile every single day of our lives together.</p>
-                <div class="signature" id="signature">With all my love, Forever yours 💕</div>
-            </div>
-        </section>
-    </div>
+    <script src="script.js"></script>
+    <script>
+        // --- Music Logic ---
+        const musicBtn = document.getElementById('musicToggle');
+        const music = document.getElementById('bgMusic');
 
-    <script src="script.js"></script>
-    <script>
-        // --- Music Logic ---
-        const musicBtn = document.getElementById('musicToggle');
-        const music = document.getElementById('bgMusic');
+        // 1. Toggle play/pause when the button is clicked
+        musicBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevents the 'document' click listener from double-triggering
+            if (music.paused) {
+                music.play();
+                musicBtn.innerHTML = '🎶';
+            } else {
+                music.pause();
+                musicBtn.innerHTML = '🎵';
+            }
+        });
 
-        musicBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (music.paused) {
-                music.play();
-                musicBtn.innerHTML = '🎶';
-            } else {
-                music.pause();
-                musicBtn.innerHTML = '🎵';
-            }
-        });
+        // 2. Secret "Auto-play" fix: 
+        // Most browsers block music until the user touches the page.
+        // This will start the song on her very first click anywhere.
+        document.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+                musicBtn.innerHTML = '🎶';
+            }
+        }, { once: true });
+    </script>
 
-        // --- Proposal Timer Logic ---
-        function updateTimer() {
-            const proposalDate = new Date("2023-02-13T15:30:00").getTime();
-            const now = new Date().getTime();
-            const diff = now - proposalDate;
+    <style>
+    .falling-element {
+        position: fixed;
+        top: -10%;
+        user-select: none;
+        pointer-events: none;
+        z-index: 9999;
+        animation: fall linear infinite;
+    }
 
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const secs = Math.floor((diff % (1000 * 60)) / 1000);
+    @keyframes fall {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+</style>
 
-            document.getElementById("timer-display").innerHTML = days + "d " + hours + "h " + mins + "m " + secs + "s";
-        }
-        setInterval(updateTimer, 1000);
-        updateTimer();
+<script>
+    function createFallingEffect() {
+        const symbols = ['🌸', '🌹', '❤️', '💖', '✨', '🌹'];
+        const element = document.createElement('div');
+        
+        element.className = 'falling-element';
+        element.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+        
+        element.style.left = Math.random() * 100 + 'vw';
+        element.style.animationDuration = (Math.random() * 2 + 3) + 's';
+        element.style.fontSize = (Math.random() * 10 + 15) + 'px';
+        
+        document.body.appendChild(element);
 
-        // --- Falling Roses/Hearts Logic ---
-        function createFallingEffect() {
-            const symbols = ['🌸', '🌹', '❤️', '💖', '✨', '🌹'];
-            const element = document.createElement('div');
-            element.className = 'falling-element';
-            element.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-            element.style.left = Math.random() * 100 + 'vw';
-            element.style.animationDuration = (Math.random() * 2 + 3) + 's';
-            element.style.fontSize = (Math.random() * 10 + 15) + 'px';
-            document.body.appendChild(element);
-            setTimeout(() => { element.remove(); }, 5000);
-        }
-        setInterval(createFallingEffect, 300);
+        setTimeout(() => {
+            element.remove();
+        }, 5000);
+    }
 
-        // --- Tap for Heart Effect ---
-        document.addEventListener('click', (e) => {
-            if (music.paused) { music.play(); musicBtn.innerHTML = '🎶'; } // Auto-play music on click
-            const h = document.createElement('div');
-            h.innerHTML = '💖';
-            h.style.position = 'fixed';
-            h.style.left = e.clientX + 'px';
-            h.style.top = e.clientY + 'px';
-            h.style.fontSize = '20px';
-            h.style.pointerEvents = 'none';
-            h.style.transition = 'all 1s ease-out';
-            h.style.zIndex = '10000';
-            document.body.appendChild(h);
-            setTimeout(() => {
-                h.style.transform = `translateY(-100px) scale(2)`;
-                h.style.opacity = '0';
-            }, 10);
-            setTimeout(() => h.remove(), 1000);
-        });
-    </script>
+    // Adjust the '300' to a lower number like '150' if you want MORE petals
+    setInterval(createFallingEffect, 300);
+</script>
 </body>
 </html>
