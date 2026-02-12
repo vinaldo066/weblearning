@@ -130,5 +130,32 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // --- Music Logic ---
+        const musicBtn = document.getElementById('musicToggle');
+        const music = document.getElementById('bgMusic');
+
+        // 1. Toggle play/pause when the button is clicked
+        musicBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevents the 'document' click listener from double-triggering
+            if (music.paused) {
+                music.play();
+                musicBtn.innerHTML = '🎶';
+            } else {
+                music.pause();
+                musicBtn.innerHTML = '🎵';
+            }
+        });
+
+        // 2. Secret "Auto-play" fix: 
+        // Most browsers block music until the user touches the page.
+        // This will start the song on her very first click anywhere.
+        document.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+                musicBtn.innerHTML = '🎶';
+            }
+        }, { once: true });
+    </script>
 </body>
 </html>
